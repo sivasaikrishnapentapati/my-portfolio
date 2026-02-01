@@ -2,12 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/my-portfolio/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Siva's Portfolio</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      (function() {
+        if (window.location.search[1] === 'p'
+          && window.location.pathname.indexOf('/my-portfolio/index.html') !== 0) {
+          var l = '/my-portfolio' +
+            (/^\//.test(w=window.location.pathname.slice(1).split('/').slice(1 - 1).join('/')) ? w.slice(0) : '/' + w) +
+            (window.location.search ? '&' + window.location.search.slice(1) : '') +
+            window.location.hash;
+          l = l.split('&').map(x => x === '~and~' ? '&' : x).join('');
+          window.history.replaceState(null, null, l);
+        }
+      }());
+    </script>
   </body>
 </html>
