@@ -9,18 +9,5 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script>
-      (function() {
-        if (window.location.search[1] === 'p'
-          && window.location.pathname.indexOf('/my-portfolio/index.html') !== 0) {
-          var l = '/my-portfolio' +
-            (/^\//.test(w=window.location.pathname.slice(1).split('/').slice(1 - 1).join('/')) ? w.slice(0) : '/' + w) +
-            (window.location.search ? '&' + window.location.search.slice(1) : '') +
-            window.location.hash;
-          l = l.split('&').map(x => x === '~and~' ? '&' : x).join('');
-          window.history.replaceState(null, null, l);
-        }
-      }());
-    </script>
   </body>
 </html>
